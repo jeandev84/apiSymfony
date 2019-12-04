@@ -1,0 +1,4 @@
+https://geo.api.gouv.fr/
+https://geo.api.gouv.fr/decoupage-administratif/communes
+
+curl 'https://geo.api.gouv.fr/communes?nom=Nantes&fields=departement&boost=population&limit=5'

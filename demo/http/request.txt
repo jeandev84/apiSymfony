@@ -1,0 +1,33 @@
+# REQUETTE HTTP
+
+Ex: http://monsite.com/auteurs?nom=martin&prenom=durant
+
+Method HTTP:
+GET  : pour recuperer une ressource sans la modifier (select)
+POST : pour creer une ressource (create)
+PUT  : pour modifier une ressource (update)
+DELETE : pour supprimer une ressource (delete)
+
+HEAD
+PATCH
+
+Example:
+
+GET /auteurs?nom=martin&prenom=durant HTTP/1.1
+
+Version du protocole: HTTP 1.1 ou HTTP/2.0 (les autres versions etant obsoletes)
+
+Headers
+=====================
+Host : www.monsite.fr
+Accept : text/html
+User-agent : Mozilla/4.0
+
+=====================
+Contenu d'une requette:
+le corps (il n'y a pas de contenu pour une requette GET)
+
+Tres souvent on obtient le corps en POST/ PUT
+
+Ici pour une requette POST ou PUT on retrouve les elements
+du formulaire transmis (Nom=martin&prenom=durant)

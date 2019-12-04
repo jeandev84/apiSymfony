@@ -1,0 +1,30 @@
+200 OK : Tout s'est bien passe
+201 Created : La creation de la ressource s'est bien passse
+Tout s'est bien passe mais je n'envoie rien
+( En general le contenu de la nouvelle ressource
+est aussi renvoyee dans la reponse,
+mais ce n'est pas obligatoire - on ajoute aussi un "header"
+Location ave l'URL de la nouvelle ressource)
+
+204 No Content : Meme principe que pour la 201, sauf que cette fois-ci,
+le contenu de la ressource nouvellement cree ou modifiee n'est pas renvoyee en repose:
+
+304 Not modified : Le contenu n'a pas ete modifie depuis la derniere fois qu'elle a etet mise en cache.
+ ( Pour la gestion du cache )
+
+400 Bad request: La demande n'a pas pu etre traitee correctement
+
+401 Unauthorized : L'Authentification a echoue
+
+403 Forbidden: L'acces a cette ressource n'est pas autorisee
+
+404 Not Found : La ressource n'existe pas.
+
+405 Method not allowed: La method HTTP utilisee n'est pas traitable par API.
+
+406 Not acceptable: Le serveur n'est pas en mesure de repondre aux attentes des entetes
+Accept . En clair, le client demande un format (XML par example)
+et l'API n'est pas prevenue pour generer du XML
+
+505 Server error : Le serveur a rencontre un probleme.
+

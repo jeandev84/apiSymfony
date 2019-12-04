@@ -1,0 +1,39 @@
+MODEL DE MATURITE DE Richardson
+==============================================
+Level 0: The Swamp of POX :
+  Une seul point d'entree pour toutes les requetes (ne nous concerne donc pas)
+
+Level 1: Resources
+  Chaque ressource a son point d'entree,
+  c'est la contrainte n5
+  identifiant unique mais sans prendre en compte la methode (POST, GET, ..)
+
+
+
+Level 2 : HTTP Verbs
+   Chaque ressource a son point d'entree,
+   c'est la contrainte n5
+   identifiant unique en prenant en compte la methode (POST, GET, ..)
+
+
+Level 3 : Hypermedia Controls Gerer les liens vers les ressources liees
+donc rendre l'API auto decouvrable
+
+{
+   "id": 1,
+   "nomAuteur" : "James",
+   "nationaliteAuteur": "Americain",
+   "links" : {
+      "update": "http://domain.name/autheur/1",
+      "associated: "http://domain.name/livre/16",
+   }
+}
+
+================================================
+Creation     :  POST      /auteurs/create
+Lecture      :  GET       /auteurs/{id}
+Liste        :  GET       /auteurs/list
+Modification :  PUT       /auteurs/{id}/update
+Suppression  :  DELETE    /auteurs/{id}/delete
+
+GET, POST, PUT, DELETE sont des verbes differents

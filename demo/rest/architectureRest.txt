@@ -1,0 +1,48 @@
+Architecture REST
+
+(REST) Representational State Transfert
+
+Les contraintes de l'architecture REST:
+
+1. Architecture client / serveur : c'est le cas du protocole HTTP
+pour etre une architecture REST vous devez etre client serveur
+
+2. Stateless (sans etat) : on ne conserve pas de contexte entre les requetes
+donc pas de variable de session par exemple.
+L'utilisateur doit donc etre authentifie a chaque requete !
+c.a.d une Architecture REST ne conserve pas d'historique,
+c'est a dire un client vous envoit une requette vous lui envoye la reponse,
+vous faites comme-ci il ne vous a jamais demande quelque-soit
+cad nous avons rien conserve en memoire (pas de cookies, pas de sessions)
+Il n'y a pas de conservation de l'etat des requettes que vous faites a vos clients
+
+
+3. Cacheable:
+Une API REST doit etre cachable.
+cad, on doit pouvoir mettre en cache la ressource pour s'en servir pour des requetes similaires consecutives.
+
+
+4. Latered system (cad le systeme doit etre scindee en couche) :
+Le client n'a pas a savoir comment est generee la ressource
+cad le client n'a pas a savoir comment est fabrique la reponse (boite noire)
+
+5. Uniform Interface : contrainte au niveau de la ressource qui doit:
+
+ - Possedant un identifiant unique (combinaison Methode - URI unique) :
+   Ex: ces deux requetes sont differentes
+     GET /auteurs (va recuperer la liste des auteurs)
+     POST / auteurs (va creer un auteur)
+
+
+  - Avoir une representation :
+    il faut choisir la maniere de formater la reponse et s'y tenir
+    {
+      "codeAuteur": 150,
+      "nomAuteur": "James",
+      "nationaliteAuteur": "Americain"
+    }
+
+    etre auto-decrite: il s'agit simplement de preciser le format de la reponse(Json, Xml, CSV ...)
+    grace au content-type dans le header.
+
+

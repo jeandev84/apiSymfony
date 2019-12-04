@@ -1,0 +1,37 @@
+La reponse HTTP
+================================
+
+requette:
+http://monsite.com/auteurs?nom=martin&prenom=durant
+
+Code status:
+
+1xx : information
+2xx : succes(200 pour OK, 201 pour Created ..)
+3xx : redirection (301 permanent redirect)
+4xx : requette invalide (400, 401, 403, 404, 405)
+5xx : erreur serveur (500, 501, 503, 505)
+
+
+1. Protocol
+Version du protocole utilise:
+Version Protocol CodeStatus Message
+HTTP/1.0  200 OK
+
+
+2. Headers
+
+Date: Thu, 11 Jan 2019
+
+Server: Apache/2.0.5.4
+Content-Type: Application/Json
+Content-Length: 53
+Content-Location: /auteur/2
+
+Cache-control : no-cache
+
+
+3. Corps de la reponse
+
+Depend de la reponse (du html, Json, Xml ..)
+
