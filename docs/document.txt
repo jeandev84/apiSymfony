@@ -1,0 +1,31 @@
+# CREATE CONTROLLER
+$  php bin/console make:controller ApiController
+
+# CREATE DATABASE (biblio_api)
+$  php bin/console doctrine:database:create
+
+# TABLE
+Un auteur a une nationalite
+Une nationalite a plusieurs auteurs
+-----------------------------
+Nationalite 1
+ id (int)
+ libelle (string)
+  - nationalite
+
+Auteur 0
+ id (int)
+ nom (string)
+ prenom (string)
+
+
+# CREATE ENTITY
+$ php bin/console make:entity Nationalite
+
+# GENERER LES TABLES
+$ php bin/console make:migration
+
+# MIGRER (INSERER LES TABLES DANS LA BASE DE DONNEES)
+$ php bin/console doctrine:migrations:migrate
+
+Relation de Auteur(plusieurs auteurs) vers Nationalite(une seul nationalite) (ManyToOne)

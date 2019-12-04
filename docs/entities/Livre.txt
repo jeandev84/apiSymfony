@@ -1,0 +1,264 @@
+Un Livre est edite par un seul Editeur
+Livre(plusieurs)  Editeur(Un seul) (ManyToOne)
+
+Un Livre est d'un seul Genre (Relation Bidirectionelle)
+Livre(plusieurs) Genre(Un seul) (ManyToOne)
+
+==============================================================
+
+andev-Lenovo-G580:/var/www/apiSymfony/api$ php bin/console make:entity Livre
+
+ created: src/Entity/Livre.php
+ created: src/Repository/LivreRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > isbn
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+ Field length [255]:
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Livre.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > titre
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+ Field length [255]:
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Livre.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > prix
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+ Field length [255]:
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Livre.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > prix
+
+
+
+ [ERROR] The "prix" property already exists.
+
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > prix
+
+
+
+ [ERROR] The "prix" property already exists.
+
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ >
+
+
+
+  Success!
+
+
+ Next: When you're ready, create a migration with make:migration
+
+jeandev@jeandev-Lenovo-G580:/var/www/apiSymfony/api$
+jeandev@jeandev-Lenovo-G580:/var/www/apiSymfony/api$ php bin/console make:entity Livre
+
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+ > prix
+
+ Field type (enter ? to see all types) [string]:
+ > ?
+
+Main types
+  * string
+  * text
+  * boolean
+  * integer (or smallint, bigint)
+  * float
+
+Relationships / Associations
+  * relation (a wizard 🧙 will help you build the relation)
+  * ManyToOne
+  * OneToMany
+  * ManyToMany
+  * OneToOne
+
+Array/Object Types
+  * array (or simple_array)
+  * json
+  * object
+  * binary
+  * blob
+
+Date/Time Types
+  * datetime (or datetime_immutable)
+  * datetimetz (or datetimetz_immutable)
+  * date (or date_immutable)
+  * time (or time_immutable)
+  * dateinterval
+
+Other Types
+  * decimal
+  * guid
+  * json_array
+
+
+ Field type (enter ? to see all types) [string]:
+ > float
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > yes
+
+ updated: src/Entity/Livre.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > genre
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > Genre
+
+What type of relationship is this?
+ ------------ ------------------------------------------------------------------
+  Type         Description
+ ------------ ------------------------------------------------------------------
+  ManyToOne    Each Livre relates to (has) one Genre.
+               Each Genre can relate to (can have) many Livre objects
+
+  OneToMany    Each Livre can relate to (can have) many Genre objects.
+               Each Genre relates to (has) one Livre
+
+  ManyToMany   Each Livre can relate to (can have) many Genre objects.
+               Each Genre can also relate to (can also have) many Livre objects
+
+  OneToOne     Each Livre relates to (has) exactly one Genre.
+               Each Genre also relates to (has) exactly one Livre.
+ ------------ ------------------------------------------------------------------
+
+ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToOne
+
+ Is the Livre.genre property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to Genre so that you can access/update Livre objects from it - e.g. $genre->getLivres()? (yes/no) [yes]:
+ >
+
+ A new property will also be added to the Genre class so that you can access the related Livre objects from it.
+
+ New field name inside Genre [livres]:
+ >
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Livre is "orphaned" when it is removed from its related Genre.
+ e.g. $genre->removeLivre($livre)
+
+ NOTE: If a Livre may *change* from one Genre to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Livre objects (orphanRemoval)? (yes/no) [no]:
+ >
+
+ updated: src/Entity/Livre.php
+ updated: src/Entity/Genre.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > editeur
+
+ Field type (enter ? to see all types) [string]:
+ > ManyToOne
+
+ What class should this entity be related to?:
+ > Editeur
+
+ Is the Livre.editeur property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to Editeur so that you can access/update Livre objects from it - e.g. $editeur->getLivres()? (yes/no) [yes]:
+ >
+
+ A new property will also be added to the Editeur class so that you can access the related Livre objects from it.
+
+ New field name inside Editeur [livres]:
+ >
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Livre is "orphaned" when it is removed from its related Editeur.
+ e.g. $editeur->removeLivre($livre)
+
+ NOTE: If a Livre may *change* from one Editeur to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Livre objects (orphanRemoval)? (yes/no) [no]:
+ >
+
+ updated: src/Entity/Livre.php
+ updated: src/Entity/Editeur.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > auteur
+
+ Field type (enter ? to see all types) [string]:
+ > ManyToOne
+
+ What class should this entity be related to?:
+ > Auteur
+
+ Is the Livre.auteur property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to Auteur so that you can access/update Livre objects from it - e.g. $auteur->getLivres()? (yes/no) [yes]:
+ >
+
+ A new property will also be added to the Auteur class so that you can access the related Livre objects from it.
+
+ New field name inside Auteur [livres]:
+ >
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Livre is "orphaned" when it is removed from its related Auteur.
+ e.g. $auteur->removeLivre($livre)
+
+ NOTE: If a Livre may *change* from one Auteur to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Livre objects (orphanRemoval)? (yes/no) [no]:
+ >
+
+ updated: src/Entity/Livre.php
+ updated: src/Entity/Auteur.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ >
+
+
+
+  Success!
+
+
+ Next: When you're ready, create a migration with make:migration
+
+jeandev@jeandev-Lenovo-G580:/var/www/apiSymfony/api$

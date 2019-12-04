@@ -1,0 +1,63 @@
+jeandev@jeandev-Lenovo-G580:/var/www/apiSymfony/api$ php bin/console make:entity Genre
+
+ created: src/Entity/Genre.php
+ created: src/Repository/GenreRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > libelle
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+ Field length [255]:
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Genre.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ >
+
+
+
+  Success!
+
+
+ Next: When you're ready, create a migration with make:migration
+
+jeandev@jeandev-Lenovo-G580:/var/www/apiSymfony/api$ php bin/console make:entity Editeur
+
+ created: src/Entity/Editeur.php
+ created: src/Repository/EditeurRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > nom
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+ Field length [255]:
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Editeur.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ >
+
+
+
+  Success!
+
+
+ Next: When you're ready, create a migration with make:migration

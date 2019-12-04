@@ -1,0 +1,150 @@
+0:/var/www/apiSymfony/api$ php bin/console doctrine:database:create
+Created database `biblo_api` for connection named default
+jeandev@jeandev-Lenovo-G580:/var/www/apiSymfony/api$ php bin/console make:entity Nationalite
+
+ created: src/Entity/Nationalite.php
+ created: src/Repository/NationaliteRepository.php
+
+ Entity generated! Now let's add some fields!
+  You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > libelle
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+ Field length [255]:
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Nationalite.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ >
+
+
+
+  Success!
+
+
+ Next: When you're ready, create a migration with make:migration
+
+jeandev@jeandev-Lenovo-G580:/var/www/apiSymfony/api$ php bin/console make:entity Auteur
+
+ created: src/Entity/Auteur.php
+ created: src/Repository/AuteurRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > nom
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+ Field length [255]:
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Auteur.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > prenom
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+ Field length [255]:
+ >
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Auteur.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > relation
+
+ Field type (enter ? to see all types) [string]:
+ > ?
+
+Main types
+  * string
+  * text
+  * boolean
+  * integer (or smallint, bigint)
+  * float
+
+Relationships / Associations
+  * relation (a wizard 🧙 will help you build the relation)
+  * ManyToOne
+  * OneToMany
+  * ManyToMany
+  * OneToOne
+
+Array/Object Types
+  * array (or simple_array)
+  * json
+  * object
+  * binary
+  * blob
+
+Date/Time Types
+  * datetime (or datetime_immutable)
+  * datetimetz (or datetimetz_immutable)
+  * date (or date_immutable)
+  * time (or time_immutable)
+  * dateinterval
+
+Other Types
+  * decimal
+  * guid
+  * json_array
+
+
+ Field type (enter ? to see all types) [string]:
+ > ManyToOne
+
+ What class should this entity be related to?:
+ > Nationalite
+
+ Is the Auteur.relation property allowed to be null (nullable)? (yes/no) [yes]:
+ > no
+
+ Do you want to add a new property to Nationalite so that you can access/update Auteur objects from it - e.g. $nationalite->getAuteurs()? (yes/no) [yes]:
+ > yes
+
+ A new property will also be added to the Nationalite class so that you can access the related Auteur objects from it.
+
+ New field name inside Nationalite [auteurs]:
+ >
+
+ Do you want to activate orphanRemoval on your relationship?
+ A Auteur is "orphaned" when it is removed from its related Nationalite.
+ e.g. $nationalite->removeAuteur($auteur)
+
+ NOTE: If a Auteur may *change* from one Nationalite to another, answer "no".
+
+ Do you want to automatically delete orphaned App\Entity\Auteur objects (orphanRemoval)? (yes/no) [no]:
+ >
+
+ updated: src/Entity/Auteur.php
+ updated: src/Entity/Nationalite.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ >
+
+
+
+  Success!
+
+
+ Next: When you're ready, create a migration with make:migration
+
+jeandev@jeandev-Lenovo-G580:/var/www/apiSymfony/api$
