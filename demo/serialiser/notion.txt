@@ -1,0 +1,7 @@
+                   serialize
+Object =================== Array =================> Format( JSON, XML, CSV )
+   normalise (ObjectToArray)   +      encode(ArrayToFormat)
+
+                            deserialize
+Format( JSON, XML, CSV ) ================ Array ===================> Object
+  denormalise (ObjectToArray)        +            decode(FormatToArray)

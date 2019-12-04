@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Old;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Class ApiController
- * @package App\Controller
+ * @package App\Controller\Old
 */
 class ApiController extends AbstractController
 {
@@ -24,11 +24,23 @@ class ApiController extends AbstractController
          on recupere toutes les regions depuis le lien d'une api externe : https://geo.api.gouv.fr/regions
          qui est au format json
         */
-        $mesRegionJson = file_get_contents('https://geo.api.gouv.fr/regions');
-        $mesRegions = $serializer->deserialize($mesRegionJson, 'App\Entity\Region[]', 'json');
+        $mesRegions = file_get_contents('https://geo.api.gouv.fr/regions');
 
+        /* on transforme les donnees recus en tableau (cad) Json to Array */
+        $mesRegionsTab = $serializer->decode($mesRegions, 'json'); // json to array
+
+        /* dd($mesRegionsTab); */
+        /* $serializer->denormalize($mesRegionsTab, 'App\Entity\Region');  on obtient un object */
+
+        /* transform mon tableau en Object Region , [] pour dire qu'on obtient un tableau d'objects de regions */
+        $mesRegionObject = $serializer->denormalize($mesRegionsTab, 'App\Entity\Region[]');
+
+        /* dd($mesRegionObject); */
+
+        /* on rend la vue avec ses donnees */
         return $this->render('api/index.html.twig', [
-            'mesRegions' => $mesRegions
+            /* 'mesRegions' => $mesRegionsTab */
+            'mesRegions' => $mesRegionObject
         ]);
     }
 
