@@ -1,0 +1,30 @@
+# ADMIN BACKEND
+$ composer require admin
+
+config/routes/easy_admin.yaml
+ easy_admin_bundle:
+     resource: '@EasyAdminBundle/Controller/EasyAdminController.php'
+     prefix: /admin
+     type: annotation
+
+config/packages/easy_admin.yaml
+
+On decommente pour indiquer a easyadmin les entites a gerer:
+
+easy_admin:
+    # Changer le nom du site
+    site_name: BiblioWeb
+
+    entities:
+        # List the entity class name you want to manage
+        - App\Entity\Genre
+        - App\Entity\Nationalite
+        - App\Entity\Auteur
+        - App\Entity\Editeur
+        - App\Entity\Livre
+
+
+
+TAPER DANS L'URL:
+http://localhost:8000/admin
+http://localhost:<port>/admin

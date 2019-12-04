@@ -49,6 +49,17 @@ class Livre
      */
     private $auteur;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $annee;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $langue;
+
+
 
     public function getId(): ?int
     {
@@ -125,5 +136,36 @@ class Livre
         $this->auteur = $auteur;
 
         return $this;
+    }
+
+    public function getAnnee(): ?int
+    {
+        return $this->annee;
+    }
+
+    public function setAnnee(?int $annee): self
+    {
+        $this->annee = $annee;
+
+        return $this;
+    }
+
+    public function getLangue(): ?string
+    {
+        return $this->langue;
+    }
+
+    public function setLangue(?string $langue): self
+    {
+        $this->langue = $langue;
+
+        return $this;
+    }
+
+
+    /** Obligatoire a ajouter methode __toString() dans toutes les entitees */
+    public function __toString()
+    {
+        return (string) $this->titre;
     }
 }

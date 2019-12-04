@@ -1,0 +1,3 @@
+# Par exemple je veux modifier l'entite Livre
+
+$ php bin/console make:entity Livre

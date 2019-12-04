@@ -80,4 +80,11 @@ class Genre
 
         return $this;
     }
+
+
+    /** Obligatoire a ajouter methode __toString() dans toutes les entitees */
+    public function __toString()
+    {
+        return (string) $this->libelle;
+    }
 }
