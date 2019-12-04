@@ -15,7 +15,7 @@ class ApiController extends AbstractController
 {
     /**
      * @Route("/listeRegions", name="listeRegions")
-     * @param SerializerInterface $serializer [ jsonToArray, ArrayToJson, ObjectToJson ]
+     * @param SerializerInterface $serializer [ jsonToArray(normalise), ArrayToJson(denormalise) ]
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listeRegion(SerializerInterface $serializer)
