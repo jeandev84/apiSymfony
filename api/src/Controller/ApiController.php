@@ -5,6 +5,11 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+/**
+ * Class ApiController
+ * @package App\Controller
+*/
 class ApiController extends AbstractController
 {
     /**
@@ -12,7 +17,10 @@ class ApiController extends AbstractController
     */
     public function listeRegion()
     {
-        return $this->render('api/index.html.twig', []);
+        $mesRegions = file_get_contents('https://geo.api.gouv.fr/regions');
+        dump($mesRegions);
+        die;
+        return $this->render('api/index.html.twig');
     }
 
 
