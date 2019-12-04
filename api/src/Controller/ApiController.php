@@ -56,16 +56,16 @@ class ApiController extends AbstractController
         } else {
 
             // on fait la recherche qui correspond a la recheche de departement dont selectionne
-            $mesDepsJson = file_get_contents('https://geo.api.gouv.fr/regions/'. $codeRegion .'departements');
+            $mesDepsJson = file_get_contents('https://geo.api.gouv.fr/regions/'. $codeRegion .'/departements');
         }
 
         // decodage du format json en tableau
         // on precise qu'on passe au decode() un format de type json
-        $mesDepsTab = $serializer->decode($mesDepsJson, 'json');
+        $mesDepsArray = $serializer->decode($mesDepsJson, 'json');
 
         return $this->render('api/listDepsParRegion.html.twig', [
             'mesRegions' => $mesRegionsArray,
-            'mesDeps' => $mesDepsTab
+            'mesDeps' => $mesDepsArray
         ]);
     }
 
