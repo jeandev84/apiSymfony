@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AuteurRepository")
@@ -20,24 +22,28 @@ class Auteur
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"listGenreFull"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"listGenreFull"})
      */
     private $prenom;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Nationalite", inversedBy="auteurs")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"listGenreFull"})
      */
-    private $relation;
+    private $nationalite;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Livre", mappedBy="auteur")
      */
     private $livres;
+
 
     public function __construct()
     {
@@ -69,18 +75,6 @@ class Auteur
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getRelation(): ?Nationalite
-    {
-        return $this->relation;
-    }
-
-    public function setRelation(?Nationalite $relation): self
-    {
-        $this->relation = $relation;
 
         return $this;
     }
@@ -121,5 +115,17 @@ class Auteur
     public function __toString()
     {
        return (string) $this->nom . " " . $this->prenom;
+    }
+
+    public function getNationalite(): ?Nationalite
+    {
+        return $this->nationalite;
+    }
+
+    public function setNationalite(?Nationalite $nationalite): self
+    {
+        $this->nationalite = $nationalite;
+
+        return $this;
     }
 }

@@ -24,13 +24,14 @@ class Nationalite
     private $libelle;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Auteur", mappedBy="relation")
+     * @ORM\OneToMany(targetEntity="App\Entity\Auteur", mappedBy="nationalite")
      */
     private $auteurs;
 
     public function __construct()
     {
         $this->auteurs = new ArrayCollection();
+        $this->yes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,5 +87,36 @@ class Nationalite
     public function __toString()
     {
         return (string) $this->libelle;
+    }
+
+    /**
+     * @return Collection|Auteur[]
+     */
+    public function getYes(): Collection
+    {
+        return $this->yes;
+    }
+
+    public function addYe(Auteur $ye): self
+    {
+        if (!$this->yes->contains($ye)) {
+            $this->yes[] = $ye;
+            $ye->setNationalite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeYe(Auteur $ye): self
+    {
+        if ($this->yes->contains($ye)) {
+            $this->yes->removeElement($ye);
+            // set the owning side to null (unless already changed)
+            if ($ye->getNationalite() === $this) {
+                $ye->setNationalite(null);
+            }
+        }
+
+        return $this;
     }
 }

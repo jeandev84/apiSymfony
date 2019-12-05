@@ -1,0 +1,2 @@
+# Make Controller
+$ php bin/console make:controller ApiGenreController
